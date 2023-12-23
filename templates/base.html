@@ -1,0 +1,73 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style_base.css' %}" />
+    <link rel="icon" href="http://s1.iconbird.com/ico/2013/11/487/w512h51213846930628.png" type="image/x-icon" />
+    <script type="text/javascript" src="https://websovet.pro/js/snowcursor.min.js"></script>
+    <div class="container">
+      <svg class="garland" height="500" width="1000">
+        <path d="M0 0 C 0 0, 3 3, 5 5,
+                 C 5 5, 10 20, 25 25, 
+                 C 25 25, 30 30, 35 55, 
+                 C 35 55, 35 75, 65 75, 
+                 C 65 75, 80 75, 105 65, 
+                 C 105 65, 120 65, 135 45, 
+                 C 135 45, 150 55, 165 25, 
+                 C 165 25, 180 35, 195 5, 
+                 C 195 5, 210 25, 235 5, 
+                 C 235 5, 250 25, 265 25, 
+                 C 265 25, 280 45, 295 45, 
+                 C 295 45, 310 55, 335 35, 
+                 C 335 35, 350 45, 375 20, 
+                 C 375 20, 390 25, 405 5, 
+                 C 405 5, 410 5, 425 0
+                 " stroke="black" fill="transparent" />
+        <circle cx="5" cy="5" r="5" class="red" />
+        <circle cx="25" cy="25" r="5" class="blue" />
+        <circle cx="35" cy="55" r="5" class="green" />
+        <circle cx="65" cy="75" r="5" class="yellow" />
+        <circle cx="105" cy="65" r="5" class="red" />
+        <circle cx="135" cy="45" r="5" class="blue" />
+        <circle cx="165" cy="25" r="5" class="green" />
+        <circle cx="195" cy="5" r="5" class="yellow" />
+        <circle cx="235" cy="5" r="5" class="red" />
+        <circle cx="265" cy="25" r="5" class="blue" />
+        <circle cx="295" cy="45" r="5" class="green" />
+        <circle cx="335" cy="35" r="5" class="yellow" />
+        <circle cx="375" cy="20" r="5" class="red" />
+        <circle cx="405" cy="5" r="5" class="blue" />
+      </svg>
+  <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+  <nav class="nav" id="nav">
+      <ul>
+          <li><a href="http://127.0.0.1:8000/">Головна</a></li>
+          <li><a href="http://127.0.0.1:8000/post/create">Створити пост</a></li>
+          <li><a href="http://127.0.0.1:8000/admin/">Адміністрування</a></li>
+      </ul>
+  </nav>
+  </body>
+  </html>
+
+    <title>Мій блог</title>
+  </head>
+  <body>
+	{% if messages %}
+		<div class="messages">
+		{% for message in messages %}
+			<div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+				{{ message }}
+			</div>
+		{% endfor %}
+		</div>
+	{% endif %}
+    {%block content%} 
+    {%endblock content%}
+  </body>
+</html>
